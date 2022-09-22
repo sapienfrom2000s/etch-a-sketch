@@ -11,18 +11,37 @@
 */
 
 
+function grid(){
 
+    const select_structure16X16 = document.querySelector(".structure16X16");
 
-const select_structure16X16 = document.querySelector(".structure16X16");
-
-for(let height=1; height<=16;height++){
-    let heightElement = document.createElement("div");
-    heightElement.classList.add("height");
-    select_structure16X16.appendChild(heightElement);
-    for(let width=1;width<=16;width++){
-        let gridElement = document.createElement("div");
-        gridElement.classList.add("grid");
-        heightElement.appendChild(gridElement);
+    for(let height=1; height<=16;height++){
+        let heightElement = document.createElement("div");
+        heightElement.classList.add("height");
+        select_structure16X16.appendChild(heightElement);
+        for(let width=1;width<=16;width++){
+            let gridElement = document.createElement("div");
+            gridElement.classList.add("grid");
+            heightElement.appendChild(gridElement);
+        }
     }
 }
 
+function trail(){
+
+    gridSelector = document.querySelectorAll(".grid");
+    gridSelector.forEach(grid => {
+        grid.addEventListener("mouseover",changeColor);
+    });
+}
+
+function changeColor(e){
+    console.log(e);
+    const r = Math.floor(Math.random()*256); //Should use loop, OK OK
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+    e.target.style.background=`rgb(${r},${g},${b})`;
+}
+
+grid();
+trail();
