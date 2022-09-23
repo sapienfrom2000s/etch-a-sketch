@@ -47,6 +47,9 @@ function userSelectionfornumberofGrids(){
         grid(e.target.value);
         trail();
     });
+    slider.addEventListener("input",function(e){
+        slider.nextElementSibling.innerHTML = e.target.value;
+    })
 }
 
 function trail(){
@@ -64,6 +67,13 @@ function changeColor(e){
     e.target.style.backgroundColor =`rgb(${r},${g},${b})`;
 }
 
+// function sliderHover(){
+//     let selectSlider = document.querySelector(".slider");
+//     console.log(selectSlider);
+//     selectSlider.addEventListener("click",function(e){console.log(e.target);})
+// }
+
 grid(16);
 trail();
 userSelectionfornumberofGrids();
+// sliderHover();

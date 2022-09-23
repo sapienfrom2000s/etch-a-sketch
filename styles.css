@@ -24,3 +24,12 @@ body{
     align-items: center;
 }
 
+.slider-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-div > h4{
+    margin-top: 0;
+}
