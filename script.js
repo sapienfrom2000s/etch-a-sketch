@@ -32,9 +32,21 @@ function grid(n){                 //n is for number of grids
     }
 }
 
-function userSelectionfornumberofGrids(){
+function clearCanvas(){           //Removing height elements automatically removes its children as well
+    const selectHeightelements = document.querySelectorAll(".height");
+    const select_structure16X16 = document.querySelector(".structure16X16"); 
+
+    selectHeightelements.forEach(item => select_structure16X16.removeChild(item));
+}
+
+
+function userSelectionfornumberofGrids(){           
     let slider = document.querySelector(".slider");
-    slider.addEventListener("click",function(e){grid(e.target.value);});
+    slider.addEventListener("click",function(e){
+        clearCanvas();
+        grid(e.target.value);
+        trail();
+    });
 }
 
 function trail(){
@@ -52,6 +64,6 @@ function changeColor(e){
     e.target.style.backgroundColor =`rgb(${r},${g},${b})`;
 }
 
-// grid();
-// trail();
+grid(16);
+trail();
 userSelectionfornumberofGrids();
