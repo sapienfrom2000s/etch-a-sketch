@@ -15,11 +15,11 @@ function grid(){
 
     const select_structure16X16 = document.querySelector(".structure16X16");
 
-    for(let height=1; height<=7;height++){
+    for(let height=1; height<=22;height++){
         let heightElement = document.createElement("div");
         heightElement.classList.add("height");
         select_structure16X16.appendChild(heightElement);
-        for(let width=1;width<=7;width++){
+        for(let width=1;width<=47;width++){
             let gridElement = document.createElement("div");
             gridElement.classList.add("grid");
             heightElement.appendChild(gridElement);
@@ -27,26 +27,28 @@ function grid(){
     }
 }
 
-function userSelectionfornumberofGrids(){
-    let slider = document.querySelector(".slider");
-    slider.addEventListener("click",function(e){console.log(e.target.value);});
-}
+// function trail(){
 
-function trail(){
+//     gridSelector = document.querySelectorAll(".grid");
+//     gridSelector.forEach(grid => {
+//         grid.addEventListener("mouseover",changeColor);
+//     });
+// }
 
+function changeColor(){
     gridSelector = document.querySelectorAll(".grid");
-    gridSelector.forEach(grid => {
-        grid.addEventListener("mouseover",changeColor);
-    });
+
+    for(let i=0;i<gridSelector.length;i++){
+        const r = Math.floor(Math.random()*256); //Should use loop, OK OK
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+        gridSelector[i].style.backgroundColor=`rgb(${r},${g},${b})`;
+
+        if(i=(gridSelector.length-1))
+            i=0;
+    }
 }
 
-function changeColor(e){
-    const r = Math.floor(Math.random()*256); //Should use loop, OK OK
-    const g = Math.floor(Math.random()*256);
-    const b = Math.floor(Math.random()*256);
-    e.target.style.backgroundColor =`rgb(${r},${g},${b})`;
-}
-
-// grid();
+grid();
 // trail();
-userSelectionfornumberofGrids();
+changeColor();

@@ -2,16 +2,29 @@
     display: flex;
 }
 .structure16X16{
-    height: 100vh;
-    width: 100vw;
+    height: 550px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    justify-self: center;
+    border: 3px solid black;
 }
 
 .grid{
-    height: 30px;
-    width: 30px;
-    border: 1px solid black;
+    height: 77px;
+    width: 77px;
+    border: 1px solid grey;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  1x1 360x360
+    2x2 (360-1)/2
+    3x3  (360-2)/3
+    4x  */
